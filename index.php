@@ -4,22 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Webcam Capture</title>
+   
 </head>
 <body>
 
-<div id="camera">
+<div style="position: relative;" id="camera">
+<img style="height: 600px;" id="frame" src="images/Option-1.png" alt="Frame">
 
 </div>
 <button onclick="takeimage()">Capture</button>
-<div id="results"></div>
+<div id="results" >
+
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         Webcam.set({
-            height: 350,
+            height: 262,
             width: 350,
             image_format: 'jpeg',
-            jpeg_quality: 100
+             jpeg_quality: 100
         });
 
         Webcam.attach("#camera");
@@ -38,9 +42,7 @@
                     if (xhr.readyState == 4) {  
                         if (xhr.status == 200) {
                             console.log("Image sent successfully");
-                        } else {
-                            console.log("Error sending image. Status: " + xhr.status);
-                        }
+                        } 
                     }
                 };
                 xhr.send(formData);
